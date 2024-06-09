@@ -45,7 +45,7 @@ public class FileStoreController {
 	}
 
 	@GetMapping(value = "/exists/{checksum}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<String> checkFileExistence(@PathVariable String checksum) {
+	public ResponseEntity<String> checkFileExistence(@PathVariable("checksum") String checksum) {
 		boolean exists = fileStoreService.doesFileExist(checksum);
 		String response = "File's checksum available";
 		if (exists) {
