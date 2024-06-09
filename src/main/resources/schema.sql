@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS file_metadata (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    file_name VARCHAR(255) NOT NULL,
+    size BIGINT NOT NULL,
+    uploaded_date TIMESTAMP NOT NULL,
+    checksum VARCHAR(255) NOT NULL
+);
