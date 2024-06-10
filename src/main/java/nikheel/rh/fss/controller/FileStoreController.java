@@ -45,14 +45,9 @@ public class FileStoreController {
 	}
 
 	@GetMapping(value = "/exists/{checksum}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<String> checkFileExistence(@PathVariable("checksum") String checksum) {
+	public ResponseEntity<Boolean> checkFileExistence(@PathVariable("checksum") String checksum) {
 		boolean exists = fileStoreService.doesFileExist(checksum);
-		String response = "File's checksum available";
-		if (exists) {
-			return new ResponseEntity<>(response, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>("File NOT Available", HttpStatus.OK);
-		}
+		return new ResponseEntity<>(exists, HttpStatus.OK);
 	}
 
 	@GetMapping(value = "/multiExists", produces = MediaType.APPLICATION_JSON_VALUE)
